@@ -218,8 +218,10 @@
 
     <div class="tabs" id="categoryTabs">
         <button class="tab active" data-cat="all">全部 <span class="count">(0)</span></button>
-        <button class="tab" data-cat="四六级">四六级备考 <span class="count">(0)</span></button>
-        <button class="tab" data-cat="剧集·综艺·电影">剧集·综艺·电影 <span class="count">(0)</span></button>
+        <button class="tab" data-cat="四六级">四六级 <span class="count">(0)</span></button>
+        <button class="tab" data-cat="教育资料">教育资料 <span class="count">(0)</span></button>
+        <button class="tab" data-cat="影视娱乐">影视娱乐 <span class="count">(0)</span></button>
+        <button class="tab" data-cat="学习工具">学习工具 <span class="count">(0)</span></button>
     </div>
 
     <div class="resource-list" id="resourceList">
@@ -301,7 +303,9 @@
             const counts = {
                 'all': allResources.length,
                 '四六级': allResources.filter(r => r.category === '四六级').length,
-                '剧集·综艺·电影': allResources.filter(r => r.category === '剧集·综艺·电影').length,
+                '教育资料': allResources.filter(r => r.category === '教育资料').length,
+                '影视娱乐': allResources.filter(r => r.category === '影视娱乐').length,
+                '学习工具': allResources.filter(r => r.category === '学习工具').length,
             };
             document.querySelectorAll('#categoryTabs .tab').forEach(btn => {
                 const cat = btn.dataset.cat;
