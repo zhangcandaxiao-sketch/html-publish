@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- 请修改为你自己的标题：30-40字，包含核心关键词 -->
-    <title>2026年四六级备考资料大全 作文模板+真题+高频词 免费下载</title>
+    <title>2026综合资源站 四六级+剧集+综艺+电影 夸克网盘免费下载</title>
     <!-- 请修改为你自己的描述：70-80字，说明内容价值 -->
-    <meta name="description" content="整理了2025-2026年最新四六级考试全套资料，包含历年真题、作文模板、高频词汇、听力技巧，助力一次通过四六级考试。">
+    <meta name="description" content="2026年最新综合资源站：四六级备考全套资料（真题/作文/高频词）+ 热门剧集、综艺节目、电影大片，全部夸克网盘分享，无提取码，持续更新。">
     <!-- 请修改为你自己的关键词：5-8个相关关键词 -->
-    <meta name="keywords" content="四六级真题,四六级作文模板,四六级高频词,英语四级,英语六级,四六级资料">
+    <meta name="keywords" content="四六级真题,四六级作文模板,四六级高频词,英语四级,英语六级,夸克网盘资源,剧集下载,综艺资源,电影下载">
     <style>
         * {
             box-sizing: border-box;
@@ -143,29 +143,83 @@
             .resource-item {
                 padding: 15px;
             }
+            .tabs {
+                gap: 6px;
+            }
+            .tab {
+                padding: 6px 12px;
+                font-size: 13px;
+            }
+        }
+        /* 分类 tab */
+        .tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        .tab {
+            padding: 8px 16px;
+            border: 1px solid #ddd;
+            background: #fff;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 14px;
+            color: #555;
+            transition: all 0.2s ease;
+        }
+        .tab:hover {
+            border-color: #3498db;
+            color: #3498db;
+        }
+        .tab.active {
+            background: #3498db;
+            color: #fff;
+            border-color: #3498db;
+        }
+        .tab .count {
+            opacity: 0.7;
+            margin-left: 4px;
+            font-size: 12px;
+        }
+        .subcategory-tag {
+            display: inline-block;
+            padding: 2px 8px;
+            background: #ecf0f1;
+            color: #7f8c8d;
+            border-radius: 10px;
+            font-size: 12px;
+            margin-left: 8px;
+            font-weight: normal;
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>2026年四六级备考资料大全</h1>
-        <p>持续更新 | 免费分享 | 助力一次通过</p>
+        <h1>2026 综合资源站</h1>
+        <p>四六级备考 · 剧集 · 综艺 · 电影 · 持续更新</p>
     </header>
 
     <div class="intro">
-        <h2>资料包含内容</h2>
-        <p>大家好，我整理了2025-2026年最新的四六级考试全套资料，所有资料都是亲自整理和验证过的，希望能帮助大家顺利通过考试。</p>
+        <h2>资源站说明</h2>
+        <p>大家好，我整理了 2026 年最新的学习与影视资源。所有资料都是亲自验证过再分享的，链接均为夸克网盘永久有效分享，无需提取码。</p>
         <ul>
-            <li>1997-2026年历年真题及答案解析（含听力音频）</li>
-            <li>四六级作文万能模板+高分范文</li>
-            <li>四六级1000高频词+1500核心词</li>
-            <li>听力、阅读、翻译专项技巧</li>
-            <li>考前押题卷（持续更新）</li>
+            <li><strong>四六级备考</strong>：1997-2026年历年真题、作文万能模板、高频词核心词、听力阅读翻译技巧</li>
+            <li><strong>剧集</strong>：近期热播剧集（主角 / 雨霖铃 / 低智商犯罪 等 6 部）</li>
+            <li><strong>综艺</strong>：热门综艺节目（毛雪汪 / 奔跑吧 / 哈哈哈哈哈 等 4 档）</li>
+            <li><strong>电影</strong>：4K 高清大片（复仇者联盟 / 哥斯拉 / 招魂4 / 狮子王 等 7 部）</li>
+            <li><strong>近期新增</strong>：2026-06-03 剧集·综艺·电影 17 部，欢迎点击保存</li>
         </ul>
     </div>
 
     <div class="notice">
         <strong>重要通知：</strong>如果链接失效，请在评论区留言，我会在24小时内更新。所有资料仅供学习交流使用，请勿用于商业用途。
+    </div>
+
+    <div class="tabs" id="categoryTabs">
+        <button class="tab active" data-cat="all">全部 <span class="count">(0)</span></button>
+        <button class="tab" data-cat="四六级">四六级备考 <span class="count">(0)</span></button>
+        <button class="tab" data-cat="剧集·综艺·电影">剧集·综艺·电影 <span class="count">(0)</span></button>
     </div>
 
     <div class="resource-list" id="resourceList">
@@ -184,38 +238,100 @@
             <p>A：是的，我会持续更新最新的考试资料和押题卷，建议收藏本页面以便随时查看。</p>
         </div>
         <div class="faq-item">
+            <h4>Q：剧集类资源会持续更新吗？</h4>
+            <p>A：会的，每周追更新。新剧首播后 24 小时内出资源，欢迎收藏本页随时查看。</p>
+        </div>
+        <div class="faq-item">
             <h4>Q：有没有提取码？</h4>
             <p>A：所有分享链接都没有提取码，直接点击即可保存到自己的夸克网盘。</p>
         </div>
     </div>
 
     <footer>
-        <p>最后更新时间：2026年5月29日 | 本页面仅用于合法内容分享</p>
+        <p>最后更新时间：2026年6月30日 | 本页面仅用于学习交流与合法内容分享</p>
     </footer>
 
     <script>
+        // 全局状态
+        let allResources = [];
+        let activeCategory = 'all';
+
+        // 渲染函数
+        function render(resources) {
+            const resourceList = document.getElementById('resourceList');
+            if (!resources.length) {
+                resourceList.innerHTML = '<p style="text-align:center;color:#999;padding:40px 0;">该分类下暂无资源</p>';
+                return;
+            }
+            resourceList.innerHTML = '';
+            resources.forEach(resource => {
+                const item = document.createElement('div');
+                item.className = 'resource-item';
+                item.dataset.category = resource.category || '';
+
+                // 空值兜底：fileCount/size/updateTime 全空时不显示 .resource-info
+                const hasMeta = resource.fileCount || resource.size || resource.updateTime;
+                const metaHtml = hasMeta
+                    ? `<div class="resource-info">
+                            ${resource.fileCount ? `文件数量：${resource.fileCount}` : ''}
+                            ${resource.fileCount && (resource.size || resource.updateTime) ? ' | ' : ''}
+                            ${resource.size ? `大小：${resource.size}` : ''}
+                            ${resource.size && resource.updateTime ? ' | ' : ''}
+                            ${resource.updateTime ? `更新时间：${resource.updateTime}` : ''}
+                        </div>`
+                    : '';
+
+                // subCategory 角标
+                const tagHtml = resource.subCategory
+                    ? `<span class="subcategory-tag">${resource.subCategory}</span>`
+                    : '';
+
+                item.innerHTML = `
+                    <h3>${resource.name}${tagHtml}</h3>
+                    ${metaHtml}
+                    <a href="${resource.link}" class="download-btn" rel="nofollow" target="_blank">点击保存到夸克网盘</a>
+                    ${resource.extractCode ? `<span class="extract-code">提取码：${resource.extractCode}</span>` : ''}
+                `;
+                resourceList.appendChild(item);
+            });
+        }
+
+        // 更新 tab 计数
+        function updateTabCounts() {
+            const counts = {
+                'all': allResources.length,
+                '四六级': allResources.filter(r => r.category === '四六级').length,
+                '剧集·综艺·电影': allResources.filter(r => r.category === '剧集·综艺·电影').length,
+            };
+            document.querySelectorAll('#categoryTabs .tab').forEach(btn => {
+                const cat = btn.dataset.cat;
+                const span = btn.querySelector('.count');
+                if (span && counts[cat] !== undefined) {
+                    span.textContent = `(${counts[cat]})`;
+                }
+            });
+        }
+
+        // tab 切换
+        document.querySelectorAll('#categoryTabs .tab').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('#categoryTabs .tab').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                activeCategory = btn.dataset.cat;
+                const filtered = activeCategory === 'all'
+                    ? allResources
+                    : allResources.filter(r => r.category === activeCategory);
+                render(filtered);
+            });
+        });
+
         // 加载资源列表
         fetch('resources.json')
             .then(response => response.json())
             .then(resources => {
-                const resourceList = document.getElementById('resourceList');
-                resourceList.innerHTML = '';
-                
-                resources.forEach(resource => {
-                    const item = document.createElement('div');
-                    item.className = 'resource-item';
-                    
-                    item.innerHTML = `
-                        <h3>${resource.name}</h3>
-                        <div class="resource-info">
-                            文件数量：${resource.fileCount} | 大小：${resource.size} | 更新时间：${resource.updateTime}
-                        </div>
-                        <a href="${resource.link}" class="download-btn" rel="nofollow" target="_blank">点击保存到夸克网盘</a>
-                        ${resource.extractCode ? `<span class="extract-code">提取码：${resource.extractCode}</span>` : ''}
-                    `;
-                    
-                    resourceList.appendChild(item);
-                });
+                allResources = resources;
+                updateTabCounts();
+                render(allResources);
             })
             .catch(error => {
                 document.getElementById('resourceList').innerHTML = '<p style="color: red;">资源列表加载失败，请刷新页面重试。</p>';
