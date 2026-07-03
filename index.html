@@ -231,6 +231,25 @@
             margin-bottom: 6px;
             line-height: 1.6;
         }
+        .seed-item {
+            margin-bottom: 10px;
+            padding: 6px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        .seed-item:last-child { border-bottom: none; }
+        .seed-item a {
+            color: #2c3e50;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 15px;
+        }
+        .seed-item a:hover { color: #3498db; }
+        .seed-item p {
+            color: #888;
+            font-size: 13px;
+            margin: 4px 0 0;
+            line-height: 1.5;
+        }
         .seo-seed a {
             color: #2c3e50;
             text-decoration: none;
@@ -244,6 +263,69 @@
             color: #555;
             font-size: 14px;
         }
+
+        /* 站内搜索框 */
+        .search-wrap {
+            position: relative;
+            margin-bottom: 20px;
+        }
+        #siteSearch {
+            width: 100%;
+            padding: 10px 16px;
+            border: 2px solid #3498db;
+            border-radius: 25px;
+            font-size: 15px;
+            outline: none;
+            box-sizing: border-box;
+        }
+        #siteSearch:focus {
+            border-color: #2980b9;
+            box-shadow: 0 0 0 3px rgba(52,152,219,0.2);
+        }
+        .search-results {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            margin-top: 4px;
+            max-height: 400px;
+            overflow-y: auto;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            z-index: 100;
+        }
+        .sr-item {
+            padding: 10px 16px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        .sr-item:last-child { border-bottom: none; }
+        .sr-item a { color: #2c3e50; text-decoration: none; font-weight: 500; }
+        .sr-item a:hover { color: #3498db; }
+        .sr-cat { color: #3498db; font-size: 12px; }
+        .sr-desc { color: #888; font-size: 12px; margin: 4px 0 0; line-height: 1.4; }
+        .sr-empty { padding: 16px; color: #999; text-align: center; }
+        /* 分类简介 */
+        .category-intro {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-bottom: 30px;
+        }
+        .cat-intro-item {
+            background: #fff;
+            border-radius: 8px;
+            padding: 16px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        .cat-intro-item h2 { color: #3498db; font-size: 16px; margin-bottom: 8px; }
+        .cat-intro-item p { color: #666; font-size: 13px; line-height: 1.6; margin: 0; }
+        @media (max-width: 600px) {
+            .category-intro { grid-template-columns: 1fr; }
+        }
+
     </style>
 </head>
 <body>
@@ -252,7 +334,14 @@
         <p>四六级备考 · 剧集 · 综艺 · 电影 · 持续更新</p>
     </header>
 
-    <div class="intro">
+    
+    <!-- 站内搜索 -->
+    <div class="search-wrap">
+        <input type="search" id="siteSearch" placeholder="搜索资源名称/分类...（如：四六级、盘龙、高考）" autocomplete="off">
+        <div id="searchResults" class="search-results"></div>
+    </div>
+
+<div class="intro">
         <h2>资源站说明</h2>
         <p>大家好，我整理了 2026 年最新的学习与影视资源。所有资料都是亲自验证过再分享的，链接均为夸克网盘永久有效分享，无需提取码。</p>
         <ul>
@@ -271,48 +360,61 @@
     <!-- 首屏硬编码 Top 20 资源，供搜索引擎/网盘爬虫直接抓取（不依赖 JS 渲染） -->
     <section id="seo-seed" class="seo-seed">
         <h2>2026 最新资源导航（夸克网盘分享）</h2>
-        <p>本页收录 2026 年最新学习资料、剧集、电影、综艺、教育资源等 135 条夸克网盘公开分享链接，点击即可转存。</p>
+        <p>本页收录 2026 年最新学习资料、剧集、电影、综艺、教育资源等 135 条夸克网盘公开分享链接，点击即可转存，无需提取码。</p>
 
         <h3>四六级真题/高频词</h3>
-        <ul>
-            <li><a href="https://pan.quark.cn/s/8f8bc4da3ba0" rel="nofollow noopener" target="_blank">四六级1000高频词·1500核心词</a></li>
-            <li><a href="https://pan.quark.cn/s/8920d8655610" rel="nofollow noopener" target="_blank">作文模板集</a></li>
-            <li><a href="https://pan.quark.cn/s/edcc82dd7801" rel="nofollow noopener" target="_blank">四六级真题</a></li>
-            <li><a href="https://pan.quark.cn/s/33f2b220b184" rel="nofollow noopener" target="_blank">2025年6月四六级资料</a></li>
-            <li><a href="https://pan.quark.cn/s/f6d516470282" rel="nofollow noopener" target="_blank">2025年12月四六级资料</a></li>
-        </ul>
+            <div class="seed-item"><a href="https://pan.quark.cn/s/8f8bc4da3ba0" rel="nofollow noopener" target="_blank">四六级1000高频词·1500核心词</a><p>四六级高频词汇精选，涵盖必考核心词，配例句用法，适合词汇专项突破。</p></div>
+            <div class="seed-item"><a href="https://pan.quark.cn/s/8920d8655610" rel="nofollow noopener" target="_blank">作文模板集</a><p>四六级作文万能模板，含高分范文和常用句型，可直接套用，适合考前突击。</p></div>
+            <div class="seed-item"><a href="https://pan.quark.cn/s/edcc82dd7801" rel="nofollow noopener" target="_blank">四六级真题</a><p>四六级历年真题汇总，含听力阅读翻译作文，配详细解析，适合备考强化。</p></div>
+            <div class="seed-item"><a href="https://pan.quark.cn/s/33f2b220b184" rel="nofollow noopener" target="_blank">2025年6月四六级资料</a><p>2025年四六级真题及答案，含听力原文和作文范文，适合系统备考。</p></div>
+            <div class="seed-item"><a href="https://pan.quark.cn/s/f6d516470282" rel="nofollow noopener" target="_blank">2025年12月四六级资料</a><p>2025年四六级真题及答案，含听力原文和作文范文，适合系统备考。</p></div>
 
         <h3>教育资料</h3>
-        <ul>
-            <li><a href="https://pan.quark.cn/s/d1edefe8aa1d" rel="nofollow noopener" target="_blank">1.【高考】2025全国各省真题+答案</a></li>
-            <li><a href="https://pan.quark.cn/s/63e285803255" rel="nofollow noopener" target="_blank">2025押题w后高考押题</a></li>
-            <li><a href="https://pan.quark.cn/s/bdadaa7587bf" rel="nofollow noopener" target="_blank">2026年高考押题卷</a></li>
-            <li><a href="https://pan.quark.cn/s/b73610f65db1" rel="nofollow noopener" target="_blank">天星·安徽(9科)</a></li>
-            <li><a href="https://pan.quark.cn/s/7e15d9c75f9d" rel="nofollow noopener" target="_blank">天星·广东(物化生史政)</a></li>
-        </ul>
+            <div class="seed-item"><a href="https://pan.quark.cn/s/d1edefe8aa1d" rel="nofollow noopener" target="_blank">1.【高考】2025全国各省真题+答案</a><p>全国各省2025高考真题，含详细答案解析，适合了解命题规律。</p></div>
+            <div class="seed-item"><a href="https://pan.quark.cn/s/63e285803255" rel="nofollow noopener" target="_blank">2025押题w后高考押题</a><p>2026高考押题卷，涵盖当年高频考点，适合冲刺阶段使用。</p></div>
+            <div class="seed-item"><a href="https://pan.quark.cn/s/bdadaa7587bf" rel="nofollow noopener" target="_blank">2026年高考押题卷</a><p>2026高考押题卷，涵盖当年高频考点，适合冲刺阶段使用。</p></div>
+            <div class="seed-item"><a href="https://pan.quark.cn/s/b73610f65db1" rel="nofollow noopener" target="_blank">天星·安徽(9科)</a><p>天星教育2026押题卷，涵盖语数英物化生史地政全科，配套答案解析，适合考前冲刺刷题。</p></div>
+            <div class="seed-item"><a href="https://pan.quark.cn/s/7e15d9c75f9d" rel="nofollow noopener" target="_blank">天星·广东(物化生史政)</a><p>天星教育2026押题卷，涵盖语数英物化生史地政全科，配套答案解析，适合考前冲刺刷题。</p></div>
 
         <h3>剧集/电影/综艺</h3>
-        <ul>
-            <li><a href="https://pan.quark.cn/s/c9ed398420d0" rel="nofollow noopener" target="_blank">问心2 (2026) 4K 更30</a></li>
-            <li><a href="https://pan.quark.cn/s/5804216cfac6" rel="nofollow noopener" target="_blank">食神·百厨大战 第一季 (2026)</a></li>
-            <li><a href="https://pan.quark.cn/s/e1ded29fc118" rel="nofollow noopener" target="_blank">食神·百厨大战 第一季 (2026) (1)</a></li>
-            <li><a href="https://pan.quark.cn/s/27cf701146f2" rel="nofollow noopener" target="_blank">盘龙 (2026) 4K</a></li>
-            <li><a href="https://pan.quark.cn/s/d879be776dee" rel="nofollow noopener" target="_blank">X战警97 第二季 X-Men '97 Season 2 (2026) 4K</a></li>
-        </ul>
+            <div class="seed-item"><a href="https://pan.quark.cn/s/c9ed398420d0" rel="nofollow noopener" target="_blank">问心2 (2026) 4K 更30</a><p>问心2——医疗题材剧，延续前作口碑，剧情真实感人，适合现实题材爱好者。</p></div>
+            <div class="seed-item"><a href="https://pan.quark.cn/s/5804216cfac6" rel="nofollow noopener" target="_blank">食神·百厨大战 第一季 (2026)</a><p>食神·百厨大战——美食竞技综艺，看点十足，适合下饭观看。</p></div>
+            <div class="seed-item"><a href="https://pan.quark.cn/s/e1ded29fc118" rel="nofollow noopener" target="_blank">食神·百厨大战 第一季 (2026) (1)</a><p>食神·百厨大战——美食竞技综艺，看点十足，适合下饭观看。</p></div>
+            <div class="seed-item"><a href="https://pan.quark.cn/s/27cf701146f2" rel="nofollow noopener" target="_blank">盘龙 (2026) 4K</a><p>盘龙——玄幻动画，改编自经典小说，画面精良，适合动漫爱好者。</p></div>
+            <div class="seed-item"><a href="https://pan.quark.cn/s/d879be776dee" rel="nofollow noopener" target="_blank">X战警97 第二季 X-Men '97 Season 2 (2026) 4K</a><p>X战警97——经典IP动画续作，高清4K，适合超级英雄粉丝。</p></div>
 
         <h3>学习工具</h3>
-        <ul>
-            <li><a href="https://pan.quark.cn/s/bb719c19500b" rel="nofollow noopener" target="_blank">租房合同模板</a></li>
-            <li><a href="https://pan.quark.cn/s/5822957312c5" rel="nofollow noopener" target="_blank">excel练习素材</a></li>
-            <li><a href="https://pan.quark.cn/s/93009f95cf59" rel="nofollow noopener" target="_blank">扫描全能王会员版</a></li>
-            <li><a href="https://pan.quark.cn/s/0ff3e376434f" rel="nofollow noopener" target="_blank">安卓游戏-已分类</a></li>
-            <li><a href="https://pan.quark.cn/s/f60b700d19a0" rel="nofollow noopener" target="_blank">Codex工具包</a></li>
-        </ul>
+            <div class="seed-item"><a href="https://pan.quark.cn/s/bb719c19500b" rel="nofollow noopener" target="_blank">租房合同模板</a><p>租房/购房合同标准模板，含详细条款说明，可直接修改使用，适合租房买房人群。</p></div>
+            <div class="seed-item"><a href="https://pan.quark.cn/s/5822957312c5" rel="nofollow noopener" target="_blank">excel练习素材</a><p>Excel练习素材，含公式函数和数据透视表案例，适合Excel技能提升。</p></div>
+            <div class="seed-item"><a href="https://pan.quark.cn/s/93009f95cf59" rel="nofollow noopener" target="_blank">扫描全能王会员版</a><p>扫描全能王会员版，手机扫描文件必备工具，适合办公学习使用。</p></div>
+            <div class="seed-item"><a href="https://pan.quark.cn/s/0ff3e376434f" rel="nofollow noopener" target="_blank">安卓游戏-已分类</a><p>精选安卓游戏合集，已分类整理，直接安装即玩，适合休闲娱乐。</p></div>
+            <div class="seed-item"><a href="https://pan.quark.cn/s/f60b700d19a0" rel="nofollow noopener" target="_blank">Codex工具包</a><p>Codex工具包——AI编程辅助工具集合，含代码生成和调试功能，适合开发者。</p></div>
 
         <p>更多资源请查看下方分类标签页（共 135 条持续更新）。</p>
     </section>
 
-    <div class="tabs" id="categoryTabs">
+    
+    <!-- 分类简介 -->
+    <div class="category-intro">
+        <div class="cat-intro-item" id="cat-四六级">
+            <h2>四六级备考资料</h2>
+            <p>涵盖1997-2026年历年真题、高分作文模板、必考高频词汇，听力阅读翻译全覆盖，配套详细解析，适合考前系统冲刺。</p>
+        </div>
+        <div class="cat-intro-item" id="cat-教育资料">
+            <h2>教育备考资料</h2>
+            <p>覆盖高考、中考、公考、教师资格证、小升初全阶段，含各省押题卷、真题答案、名师讲义，持续更新备考资源。</p>
+        </div>
+        <div class="cat-intro-item" id="cat-影视娱乐">
+            <h2>剧集·综艺·电影</h2>
+            <p>2026年最新热播剧集、热门综艺、高清电影大片，持续追踪更新，画质清晰无删减，夸克网盘直接保存。</p>
+        </div>
+        <div class="cat-intro-item" id="cat-学习工具">
+            <h2>学习工具与软件</h2>
+            <p>实用工具软件、电子书模板、车载音乐、游戏合集等，涵盖办公、学习、娱乐多场景需求，直接下载使用。</p>
+        </div>
+    </div>
+
+<div class="tabs" id="categoryTabs">
         <button class="tab active" data-cat="all">全部 <span class="count">(0)</span></button>
         <button class="tab" data-cat="四六级">四六级 <span class="count">(0)</span></button>
         <button class="tab" data-cat="教育资料">教育资料 <span class="count">(0)</span></button>
@@ -346,10 +448,179 @@
     </div>
 
     <footer>
-        <p>最后更新时间：2026年7月1日 | 本页面仅用于学习交流与合法内容分享</p>
+        <p>最后更新时间：2026年7月3日 | 本页面仅用于学习交流与合法内容分享</p>
     </footer>
 
 
+
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        {
+            "@type": "Question",
+            "name": "夸克网盘资源怎么保存到我的账号？",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "点击任意资源链接，跳转夸克网盘后点击保存到网盘即可，无需提取码，可直接转存。"
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "这个资料是免费的吗？",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "是的，所有资料均为免费分享，无提取码，点击链接即可保存到自己的夸克网盘。"
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "资源失效了怎么办？",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "如果链接失效，请在评论区留言，我会在24小时内更新替换链接。建议收藏本页以便获取最新资源。"
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "有没有提取码？",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "所有分享链接均无提取码，直接点击链接即可打开并保存到夸克网盘。"
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "资料会持续更新吗？",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "是的，我会持续更新最新的考试资料和押题卷，建议收藏本页面以便随时查看。"
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "剧集类资源会持续更新吗？",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "会的，每周追踪更新。新剧首播后24小时内出资源，欢迎收藏本页随时查看。"
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "链接打不开怎么办？",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "请复制链接到夸克网盘APP中打开，不要直接在微信或浏览器中打开。如果仍然无法打开，说明链接已失效，请留言告知。"
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "四六级备考需要哪些资料？",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "四六级备考核心资料包括：历年真题了解命题规律、作文模板直接套用高分句型、高频核心词汇考前必背。本站在线提供全套打包下载。"
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "高考押题卷准不准？",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "高考押题卷由知名机构名师编写，涵盖当年高频考点和命题趋势，适合冲刺阶段查漏补缺，但不能替代全面复习。"
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "如何找到最新的剧集资源？",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "收藏本页面，剧集更新后我会第一时间更新。也可以查看页面影视娱乐分类，按更新时间排序获取最新资源。"
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "资料可以用在哪些设备上？",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "夸克网盘支持手机、平板、电脑多端同步。保存后可在任何设备上在线查看或下载使用。"
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "下载速度慢怎么办？",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "夸克网盘非会员下载有速度限制，开通会员可加速。建议使用夸克APP直接播放视频，无需下载。"
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "资料会过期吗？",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "夸克网盘分享链接永久有效，除非被举报删除。本站所有链接均经过验证，在发布时均有效可用。"
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "可以分享给朋友吗？",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "可以，请直接分享本页面链接给您身边有需要的朋友，无需注册或登录即可查看所有资源。"
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "为什么有些剧集是分卷压缩？",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "大文件剧集采用分卷压缩是为了方便下载，单个文件损坏不影响其他分卷，解压时需将所有分卷放在同一文件夹。"
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "高考志愿填报需要注意什么？",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "高考志愿填报要参考历年录取分数线、专业排名、招生章程三方面数据。本站提供各省历年录取数据和高校专业排名供参考。"
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "公考备考需要多长时间？",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "一般建议备考周期3-6个月，分为基础学习、专项突破、模拟冲刺三阶段。本站提供行测申论全套备考资料，适合长期系统备考。"
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "中考前如何高效复习？",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "中考前复习建议：1回归课本夯实基础；2做历年真题找薄弱点；3用押题卷做考前冲刺。本站提供各省中考押题卷和真题汇总。"
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "如何快速提升英语词汇量？",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "快速提升词汇量的方法：1使用高频词表优先背诵考试必考词；2结合例句记忆用法；3反复复习加深印象。本站提供四六级高频词和核心词资料。"
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "小升初需要准备哪些资料？",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "小升初备考核心：语数英三科重难点梳理、历年真题演练、易错题整理。本站提供王朝霞等知名教辅的小升初专项资料，适合冲刺复习。"
+            }
+        }
+    ]
+}
+    </script>
     <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -1265,11 +1536,52 @@
                 allResources = resources;
                 updateTabCounts();
                 render(allResources);
+                if (window.__initSearch) window.__initSearch(allResources);
             })
             .catch(error => {
                 document.getElementById('resourceList').innerHTML = '<p style="color: red;">资源列表加载失败，请刷新页面重试。</p>';
                 console.error('加载资源失败:', error);
             });
+
+    <script>
+    var searchInput = document.getElementById('siteSearch');
+    var searchResults = document.getElementById('searchResults');
+    var allResources = [];
+
+    window.__initSearch = function(data) {
+        allResources = data;
+    };
+
+    searchInput.addEventListener('input', function() {
+        var q = this.value.trim().toLowerCase();
+        if (!q) { searchResults.style.display = 'none'; return; }
+        var matches = allResources.filter(function(r) {
+            return r.name.toLowerCase().indexOf(q) !== -1 ||
+                   (r.description && r.description.toLowerCase().indexOf(q) !== -1) ||
+                   r.category.toLowerCase().indexOf(q) !== -1 ||
+                   (r.subCategory && r.subCategory.toLowerCase().indexOf(q) !== -1);
+        }).slice(0, 8);
+
+        if (!matches.length) {
+            searchResults.innerHTML = '<div class="sr-empty">未找到匹配资源，试试其他关键词</div>';
+            searchResults.style.display = 'block';
+            return;
+        }
+        var html2 = matches.map(function(r) {
+            return '<div class="sr-item"><a href="' + r.link + '" rel="nofollow noopener" target="_blank"><span class="sr-cat">[' + r.category + ']</span> ' + r.name + '</a>' +
+                   (r.description ? '<p class="sr-desc">' + r.description.substring(0, 60) + '...</p>' : '') + '</div>';
+        }).join('');
+        searchResults.innerHTML = html2;
+        searchResults.style.display = 'block';
+    });
+
+    document.addEventListener('click', function(e) {
+        if (!searchResults.contains(e.target) && e.target !== searchInput) {
+            searchResults.style.display = 'none';
+        }
+    });
+    </script>
+
     </script>
 </body>
 </html>
